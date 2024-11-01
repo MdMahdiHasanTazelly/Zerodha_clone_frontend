@@ -1,20 +1,18 @@
 import React from 'react';
-import './Signup.css';
+import './Login.css';
 import {useState} from 'react';
 import axios from 'axios';
 
-function Signup() {
+
+function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [userExistance, setUserExistance] = useState(false);
+    const [userExistance, setUserExistance] = useState(true);
 
-    const closePopup = ()=>{
-        setUserExistance(false);
-    }
-
+   
     const handleSubmit = (event)=>{
         
-        axios.post("http://localhost:3002/signUp", {email, password})
+        axios.post("http://localhost:3002/logIn", {email, password})
         .then( (res)=>{
             //checks the status code. if 201, user is new and brings user in dashboard
             if(res.status === 201){
@@ -23,19 +21,22 @@ function Signup() {
                 },500);
             //if 202, shows user a pop up, that the user exist & stays the user in signup page
             }else if(res.status === 202){
-                setUserExistance(true);
+                setUserExistance(false);
             }
         })
-
         event.preventDefault();
         setEmail("");
         setPassword("");
     }
 
+    const closePopup = ()=>{
+        setUserExistance(true);
+    }
+
     return ( 
-        <div className='signup-container'>
-            <h2>Sign Up</h2>
-            <form className='signup-form' onSubmit={handleSubmit}>
+        <div className='logIn-container'>
+            <h2>Log In</h2>
+            <form className='logIn-form' onSubmit={handleSubmit}>
                 <label htmlFor="email">Email:</label>
                 <input
                     type='email'
@@ -53,12 +54,12 @@ function Signup() {
                     required
                     onChange={(e)=> setPassword(e.target.value)}
                 />
-                <button type="submit">Sign Up</button>
+                <button type="submit">Log In</button>
             </form>
-            {userExistance && 
+            { !userExistance && 
             <div className='popup'>
                 <div className='popup-content'>
-                    <p>The user already exists! Please Log in</p>
+                    <p>Incorrect password or email! Please try again.</p>
                     <button onClick={closePopup}>Close</button>
                 </div>
             </div>
@@ -67,4 +68,5 @@ function Signup() {
     );
 }
 
-export default Signup;
+export default Login;
+

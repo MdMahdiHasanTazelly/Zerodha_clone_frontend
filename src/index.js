@@ -12,6 +12,7 @@ import Signup from "./landing_page/signup/Signup.js";
 import Footer from './landing_page/Footer.js';
 import Navbar from './landing_page/Navbar.js';
 import NotFound from './landing_page/NotFound.js';
+import LogIn from './landing_page/login/Login.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
   <Navbar />
     <Routes>
       <Route path='/' element={<HomePage/>} />
+      <Route path='/logIn' element={<LogIn/>}/>
       <Route path='/signup' element={<Signup/>} />
       <Route path='/about' element={<AboutPage/>} />
       <Route path='/pricing' element={<PricingPage/>} />

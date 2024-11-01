@@ -1,5 +1,5 @@
 /* Center the container in the viewport */
-.signup-container {
+.logIn-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,7 @@
   }
   
   /* Form styling */
-  .signup-form {
+  .logIn-form {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -20,12 +20,12 @@
   }
   
   /* Label styling */
-  .signup-form label {
+  .logIn-form label {
     margin-bottom: 5px;
   }
   
   /* Input styling */
-  .signup-form input {
+  .logIn-form input {
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 3px;
@@ -33,7 +33,7 @@
   }
   
   /* Button styling */
-  .signup-form button {
+  .logIn-form button {
     padding: 10px;
     background-color: #007bff;
     color: #fff;
@@ -42,10 +42,11 @@
     cursor: pointer;
   }
   
-  .signup-form button:hover {
+  .logInp-form button:hover {
     background-color: #0056b3;
   }
   
+
 
   /* User Existance pop-up related styling */
 
