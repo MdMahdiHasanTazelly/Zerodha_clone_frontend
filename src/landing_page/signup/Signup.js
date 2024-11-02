@@ -33,7 +33,7 @@ function Signup() {
     }
 
     return ( 
-        <div className='signup-container'>
+        <div className='signup-container' data-testid="signup-container">
             <h2>Sign Up</h2>
             <form className='signup-form' onSubmit={handleSubmit}>
                 <label htmlFor="email">Email:</label>
@@ -53,7 +53,7 @@ function Signup() {
                     required
                     onChange={(e)=> setPassword(e.target.value)}
                 />
-                <button type="submit">Sign Up</button>
+                <button data-testid="signupButton" type="submit">Sign Up</button>
             </form>
             {userExistance && 
             <div className='popup'>
