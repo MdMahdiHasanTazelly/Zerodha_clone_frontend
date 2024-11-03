@@ -12,12 +12,12 @@ function Login() {
    
     const handleSubmit = (event)=>{
         
-        axios.post("http://localhost:3002/logIn", {email, password})
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/logIn`, {email, password})
         .then( (res)=>{
             //checks the status code. if 201, user is new and brings user in dashboard
             if(res.status === 201){
                 setTimeout(()=>{
-                    window.location.href = "http://localhost:3000/";
+                    window.location.href = process.env.REACT_APP_DASHBOARD_URL;
                 },500);
             //if 202, shows user a pop up, that the user exist & stays the user in signup page
             }else if(res.status === 202){
